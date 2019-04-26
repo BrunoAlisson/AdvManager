@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplication.Models.Document>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Documentos</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary glyphicon glyphicon-plus" title="Novo"></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DocumentType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentType.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn btn-primary glyphicon glyphicon-pencil"></a>
+                <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes" class="btn btn-info glyphicon glyphicon-info-sign"></a>
+                <a asp-action="Delete" asp-route-id="@item.Id" title="Excluir" class="btn btn-danger glyphicon glyphicon-minus"></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

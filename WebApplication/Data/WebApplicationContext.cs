@@ -10,5 +10,11 @@ namespace WebApplication.Models
         }
 
         public DbSet<Client> Client { get; set; }
+
+        public DbSet<DocumentType> DocumentType { get; set; }
+
+        public DbSet<Document> Document { get; set; }
+
+        public DbSet<User> User { get; set; }
     }
 }

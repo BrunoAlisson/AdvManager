@@ -1,0 +1,33 @@
+﻿@model WebApplication.Models.Document
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Excluir</h2>
+
+<h3>Tem certeza que deseja excluir este item?</h3>
+<div>
+    <h4>Documento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Number)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DocumentType.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" title="Confirmar" class="btn btn-success glyphicon glyphicon-ok"></button>
+        <a asp-action="Index" title="Cancelar" class="btn btn-danger glyphicon glyphicon-remove"></a>
+    </form>
+</div>

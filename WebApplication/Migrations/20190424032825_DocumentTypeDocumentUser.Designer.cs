@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication.Models;
 
 namespace WebApplication.Migrations
 {
     [DbContext(typeof(WebApplicationContext))]
-    partial class WebApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20190424032825_DocumentTypeDocumentUser")]
+    partial class DocumentTypeDocumentUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +60,7 @@ namespace WebApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50);
 
@@ -73,17 +75,11 @@ namespace WebApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("Login");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200);
+                    b.Property<string>("Name");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("Password");
 
                     b.HasKey("Id");
 
