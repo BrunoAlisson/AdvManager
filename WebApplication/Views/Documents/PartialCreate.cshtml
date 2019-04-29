@@ -1,0 +1,47 @@
+﻿@model WebApplication.Models.Document
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PartialCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Number)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DocumentType)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input asp-for="Number" class="form-control" />
+                                <span asp-validation-for="Number" class="text-danger"></span>
+                            </td>
+                            <td>
+                                <select asp-for="DocumentTypeId" class="form-control" asp-items="ViewBag.DocumentTypeId"></select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DocumentTypeId" class="control-label"></label>
+                <select asp-for="DocumentTypeId" class ="form-control" asp-items="ViewBag.DocumentTypeId"></select>
+            </div>*@
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

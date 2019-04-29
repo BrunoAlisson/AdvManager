@@ -71,6 +71,13 @@ namespace WebApplication.Controllers
             return View(document);
         }
 
+        [Route("Novo")]
+        public IActionResult PartialCreate()
+        {
+            ViewData["DocumentTypeId"] = new SelectList(_context.DocumentType, "Id", "Description");
+            return View();
+        }
+
         // GET: Documents/Edit/5
         [Route("Editar/{id}")]
         public async Task<IActionResult> Edit(int? id)

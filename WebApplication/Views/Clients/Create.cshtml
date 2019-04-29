@@ -4,27 +4,47 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>
+    Novo
+</h2>
 
-<h4>Client</h4>
+<h4>
+    Cliente
+</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item active">
+                        <a class="nav-link active" id="pills-client-tab" data-toggle="pill" href="#tab-cliente" role="tab" aria-controls="pills-client" aria-selected="true">
+                            Cliente
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-documents-tab" data-toggle="pill" href="#tab-documentos" role="tab" aria-controls="pills-documents" aria-selected="false">
+                            Documentos
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade active in" id="tab-cliente" role="tabpanel" aria-labelledby="pills-client-tab">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="tab-pane fade" id="tab-documentos" role="tabpanel" aria-labelledby="pills-documents-tab">
+                        @await Html.PartialAsync("~/Views/Documents/PartialCreate.cshtml")
+                    </div>
+                </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <button type="submit" class="btn btn-success glyphicon glyphicon-ok" title="Confirmar"></button>
+                <a asp-action="Index" class="btn btn-danger glyphicon glyphicon-remove" title="Cancelar"></a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 

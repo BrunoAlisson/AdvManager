@@ -6,6 +6,7 @@ using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
+    [Route("Clientes")]
     public class ClientsController : Controller
     {
         private readonly WebApplicationContext _context;
@@ -16,12 +17,14 @@ namespace WebApplication.Controllers
         }
 
         // GET: Clients
+        [Route("")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Client.ToListAsync());
         }
 
         // GET: Clients/Details/5
+        [Route("Detalhes/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -40,6 +43,7 @@ namespace WebApplication.Controllers
         }
 
         // GET: Clients/Create
+        [Route("Novo")]
         public IActionResult Create()
         {
             return View();
@@ -50,6 +54,7 @@ namespace WebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Novo")]
         public async Task<IActionResult> Create([Bind("Id,Name")] Client client)
         {
             if (ModelState.IsValid)
@@ -62,6 +67,7 @@ namespace WebApplication.Controllers
         }
 
         // GET: Clients/Edit/5
+        [Route("Editar/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,6 +88,7 @@ namespace WebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Editar/{id}")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Client client)
         {
             if (id != client.Id)
@@ -113,6 +120,7 @@ namespace WebApplication.Controllers
         }
 
         // GET: Clients/Delete/5
+        [Route("Excluir/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,6 +141,7 @@ namespace WebApplication.Controllers
         // POST: Clients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("Excluir/{id}")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var client = await _context.Client.FindAsync(id);

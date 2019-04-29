@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication.Models
 {
@@ -10,5 +11,7 @@ namespace WebApplication.Models
         [MaxLength(200)]
         [Display(Name = "Nome")]
         public string Name { get; set; }
+
+        public virtual ICollection<Document> Documents { get; set; }
     }
 }

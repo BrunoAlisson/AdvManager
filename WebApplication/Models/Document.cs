@@ -20,5 +20,12 @@ namespace WebApplication.Models
 
         [Display(Name = "Tipo de documento")]
         public virtual DocumentType DocumentType { get; set; }
+
+        [Required]
+        [ForeignKey("Client")]
+        [Display(Name = "Cliente")]
+        public int ClientId { get; set; }
+        [Display(Name = "Cliente")]
+        public virtual Client Client { get; set; }
     }
 }
